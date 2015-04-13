@@ -13,7 +13,8 @@ APIs.
 Starting with Weasel `0.6.0`, you will need at least ClojureScript
 version `0.0-2850` and Piggieback version `0.1.4`.  You may want to
 use Piggieback version `0.1.5` or newer, however, as it fixes a number
-of bugs related to the new ClojureScript REPL APIs.
+of bugs related to the new ClojureScript REPL APIs. 
+
 
 ## Why?
 
@@ -55,6 +56,16 @@ user> (cemerick.piggieback/cljs-repl
 Type `:cljs/quit` to stop the ClojureScript REPL
 nil
 ```
+
+**Note for users of Piggieback >= 0.2.0:**
+> The function signature for `piggieback/cljs-repl` changed in version 
+> `0.2.0` to accept a repl-env as the first argument, instead of as a
+> keyword argument:
+>
+> ```cljs
+> user> (cemerick.piggieback/cljs-repl
+>        (weasel.repl.websocket/repl-env :ip "0.0.0.0" :port 9001))
+> ```
 
 In your project's ClojureScript source, require the Weasel client
 namespace and connect to the REPL.
